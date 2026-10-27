@@ -1,0 +1,47 @@
+name: build-push
+
+# Cuándo se ejecuta: push a main que toque los servicios o este workflow,
+# o a mano desde la pestaña Actions.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'services/**'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+# Mínimo privilegio: el GITHUB_TOKEN solo puede leer el repo.
+permissions:
+  contents: read
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v7
+
+      - name: Login en el ACR
+        uses: docker/login-action@v4
+        with:
+          registry: ${{ vars.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: Build catalogo
+        run: docker build -t ${{ vars.ACR_LOGIN_SERVER }}/catalogo:${{ github.sha }} services/catalogo
+
+      - name: Push catalogo
+        run: docker push ${{ vars.ACR_LOGIN_SERVER }}/catalogo:${{ github.sha }}
+
+      - name: Build pedidos
+        run: docker build -t ${{ vars.ACR_LOGIN_SERVER }}/pedidos:${{ github.sha }} services/pedidos
+
+      - name: Push pedidos
+        run: docker push ${{ vars.ACR_LOGIN_SERVER }}/pedidos:${{ github.sha }}
+
+      - name: Build pagos
+        run: docker build -t ${{ vars.ACR_LOGIN_SERVER }}/pagos:${{ github.sha }} services/pagos
+
+      - name: Push pagos
+        run: docker push ${{ vars.ACR_LOGIN_SERVER }}/pagos:${{ github.sha }}
