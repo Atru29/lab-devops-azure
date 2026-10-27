@@ -16,6 +16,6 @@ Formato: síntoma, causa, solución, prevención. Si la causa no está confirmad
 
 ## Caso 3: el filtro por grupo de recursos no se completa (26 oct 2026)
 - **Síntoma:** chip "ResourceGroupName : 0 seleccionados" y el gráfico seguía mostrando el gasto de toda la suscripción.
-- **Causa:** el grupo estaba vacío y recién creado; la lista de valores se arma con grupos que ya tienen gasto. (Hipótesis razonable, no verificada.)
+- **Causa:** **no confirmada.** Hipótesis: el grupo estaba vacío y recién creado, y la lista de valores se arma con grupos que ya tienen gasto.
 - **Solución:** crear el presupuesto desde el propio grupo (Administración de costos > Presupuestos), donde el ámbito ya viene fijado.
 - **Prevención:** para un ámbito por grupo, crearlo desde el grupo.
