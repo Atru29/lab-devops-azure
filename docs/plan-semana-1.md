@@ -14,8 +14,8 @@ Domingos de AZ-900: 1, 8, 15 y 22 de noviembre. El bootcamp ocupa lunes, miérco
 
 ## Pendiente del día 1
 - [x] Nota de LAB-1 (ver `ticket-LAB-1.md`)
-- [ ] Repositorio público `lab-devops-azure` en GitHub
-- [ ] Tres servicios mínimos con `/health` y su Dockerfile (los escribo yo primero)
+- [x] Repositorio público `lab-devops-azure` en GitHub
+- [x] Tres servicios mínimos con `/health` y su Dockerfile (Spring Boot 21, multi-stage, usuario no root)
 
 ## Detalle de mañana (martes 27)
 1. Crear Azure Container Registry, SKU Basic, en `rg-lab-devops`, East US 2, con las tres etiquetas.
