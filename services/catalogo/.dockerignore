@@ -1,0 +1,19 @@
+# Salida de compilación: se genera dentro del contenedor
+target/
+
+# Control de versiones
+.git
+.gitignore
+.gitattributes
+
+# No se necesitan para compilar
+HELP.md
+mvnw.cmd
+Dockerfile
+.dockerignore
+
+# Editor y sistema
+.vscode/
+.idea/
+*.swp
+*Zone.Identifier
