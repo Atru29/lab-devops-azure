@@ -1,0 +1,36 @@
+gitignore
+# --- Secretos: nunca al repo ---
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+
+# --- Terraform (bloque de diciembre) ---
+# el state puede guardar secretos en texto plano
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Node ---
+node_modules/
+npm-debug.log*
+
+# --- Editor y sistema ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+Zone.Identifier
+
+# --- Claude Code: contexto personal, no se publica ---
+CLAUDE.md
+.claude/
